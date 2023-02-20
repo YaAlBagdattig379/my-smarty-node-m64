@@ -3,8 +3,8 @@ const app = express();
 const port = process.env.PORT || 5000;
 
 
-app.get('/',(req,res)=>{
-    res.send('hello data we are testing by smarty node hello')
+app.get('/',(req,res)=>{ 
+      res.send('hello data ! we are testing by smarty node hello')
 })
 const users = [
     {id:1,name:'sabana',email:'sabana@gmail.com',phone:'342342342342'},
@@ -25,8 +25,16 @@ app.get('/users/:id',(req,res)=>{
     // const user = users[id];
     const user = users.find(u => u.id === id);
     res.send(user) ;
+})
+app.get('/fruits',(req,res)=>{
+    res.send(['mango','jack fruit','goava','oragnges']) ;
+})
+app.get('/fruits/mangoes/fazle',(req,res)=>{
+    res.send(['sour soud  fazle flavor']) ;
     // res.send('finding users')
 })
+
+
 
  
 app.listen(port,()=>{
