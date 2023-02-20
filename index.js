@@ -1,7 +1,10 @@
 const express = require('express');
+const cors = require('cors');
 const app = express();
 const port = process.env.PORT || 5000;
 
+app.use(cors())
+app.use(express.json())
 
 app.get('/',(req,res)=>{ 
       res.send('hello data ! we are testing by smarty node hello')
@@ -26,6 +29,13 @@ app.get('/users/:id',(req,res)=>{
     const user = users.find(u => u.id === id);
     res.send(user) ;
 })
+// for post 
+app.post('/user',(req,res)=>{
+    console.log('request',req.body)
+    res.send('post method success')
+})
+
+
 app.get('/fruits',(req,res)=>{
     res.send(['mango','jack fruit','goava','oragnges']) ;
 })
